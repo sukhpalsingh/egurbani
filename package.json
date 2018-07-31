@@ -1,0 +1,26 @@
+{
+  "name": "egurbani",
+  "version": "0.0.1",
+  "description": "Gurbani for electronic devices",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3"
+  },
+  "repository": "https://github.com/sukhpalsingh/egurbani",
+  "keywords": [
+    "Gurbani Desktop App",
+    "EGurbani",
+    "Read Gurbani",
+    "Search Gurbani"
+  ],
+  "author": "Sukhpal Singh",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-rebuild": "^1.8.2"
+  },
+  "dependencies": {
+    "mdbootstrap": "^4.5.8",
+    "sqlite3": "^4.0.2"
+  }
+}
