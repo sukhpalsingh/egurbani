@@ -8,8 +8,37 @@
     <link href="./style.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="container-fluid">
-        
+    <div class="container-fluid shabad">
+        <div class="row">
+            <div id="gurmukhi1" class="col-sm-12 gurmukhi">
+
+            </div>
+        </div>
+        <div class="row">
+            <div id="english1" class="col-sm-12 english">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div id="punjabi1" class="col-sm-12 punjabi">
+                
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div id="gurmukhi2" class="col-sm-12 gurmukhi">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div id="english2" class="col-sm-12 english">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div id="punjabi2" class="col-sm-12 punjabi">
+                
+            </div>
+        </div>
     </div>
 
     <div class="search-panel">
@@ -20,12 +49,12 @@
         <div class="tabs-wrapper">
             <ul class="nav tabs-orange" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link waves-light active" data-toggle="tab" href="#panel1011" role="tab">
+                    <a id="search-tab" class="nav-link waves-light show active" data-toggle="tab" href="#panel1011" role="tab">
                         <i class="fa fa-user fa-2x" aria-hidden="true"></i>
                         <br> Search</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
+                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
                         <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
                         <br> Shabad</a>
                 </li>
@@ -72,6 +101,7 @@
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="./node_modules/mdbootstrap/js/popper.min.js"></script>
     <script src="./node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="./node_modules/mdbootstrap/js/bootstrap.min.js"></script>
     <script src="./node_modules/mdbootstrap/js/mdb.min.js"></script>
     <script src="./scripts.js"></script>
   </body>
