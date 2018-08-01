@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "gurbaniakhar";
+    src: url('./fonts/gurbaniakhar.ttf');
+}
+
+.search-panel {
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 400px;
+    height: 270px;
+    overflow: hidden;
+}
+
+#search-results {
+    max-height: 150px;
+    overflow: auto;
+    font-family: gurbaniakhar;
+}
