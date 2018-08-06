@@ -5,6 +5,7 @@
     <title>Hello World!</title>
     <link href="./node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
+    <link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="./style.css" rel="stylesheet" />
   </head>
   <body>
@@ -27,89 +28,89 @@
     </div>
 
     <div class="search-panel">
-        <!-- Classic tabs -->
-        <div class="classic-tabs container-fluid">
+        <div class="container-fluid fullheight">
+            <!-- Classic tabs -->
+            <div class="classic-tabs fullheight">
 
-        
+            
 
-        <!-- Tab panels -->
-        <div class="tab-content card">
+            <!-- Tab panels -->
+            <div class="tab-content card">
 
-            <!--Panel 1-->
-            <div class="tab-pane fade in show active" id="panel1011" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <input id="search-text" type="text" class="form-control" placeholder="Search" >
+                <!--Panel 1-->
+                <div class="tab-pane fade in show active" id="panel1011" role="tabpanel">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input id="search-text" type="text" class="form-control" placeholder="Search" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-group" id="search-results"></ul>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <ul class="col-sm-12 list-group" id="search-results">
-                    </ul>
+                <!--/.Panel 1-->
+
+                <!--Panel 2-->
+                <div class="tab-pane fade" id="panel1012" role="tabpanel">
+                    <div class="row">
+                        <ul class="col-sm-12 list-group" id="shabad-results">
+                        </ul>
+                    </div>
                 </div>
+                <!--/.Panel 2-->
+
+                <div class="tab-pane fade" id="setting-panel" role="tabpanel">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="gurmukhi-font-size">Gurmukhi</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input id="gurmukhi-font-size" type="range" min="10" max="100" value="45" class="form-control" onchange="settings.updateFontSizes()" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="punjabi-font-size">Punjabi</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input id="punjabi-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="english-font-size">English</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input id="english-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!--/.Panel 1-->
 
-            <!--Panel 2-->
-            <div class="tab-pane fade" id="panel1012" role="tabpanel">
-                <div class="row">
-                    <ul class="col-sm-12 list-group" id="shabad-results">
-                    </ul>
-                </div>
-            </div>
-            <!--/.Panel 2-->
-
-            <div class="tab-pane fade" id="setting-panel" role="tabpanel">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label for="gurmukhi-font-size">Gurmukhi</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input id="gurmukhi-font-size" type="range" min="10" max="100" value="45" class="form-control" onchange="settings.updateFontSizes()" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label for="punjabi-font-size">Punjabi</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input id="punjabi-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label for="english-font-size">English</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input id="english-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
-                    </div>
-                </div>
+            <!-- Nav tabs -->
+            <div class="tabs-wrapper">
+                <ul class="nav tabs-orange" role="tablist">
+                    <li class="nav-item">
+                        <a id="search-tab" class="nav-link waves-light show active" data-toggle="tab" href="#panel1011" role="tab">
+                            <i class="fa fa-search fa-1x" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
+                            <i class="fa fa-bookmark fa-1x" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#setting-panel" role="tab">
+                            <i class="fa fa-cog fa-1x" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
             </div>
 
+            </div>
+            <!-- Classic tabs -->
         </div>
-
-        <!-- Nav tabs -->
-        <div class="tabs-wrapper">
-            <ul class="nav tabs-orange" role="tablist">
-                <li class="nav-item">
-                    <a id="search-tab" class="nav-link waves-light show active" data-toggle="tab" href="#panel1011" role="tab">
-                        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                        <br> Search</a>
-                </li>
-                <li class="nav-item">
-                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
-                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-                        <br> Shabad</a>
-                </li>
-                <li class="nav-item">
-                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#setting-panel" role="tab">
-                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-                        <br> Settings</a>
-                </li>
-            </ul>
-        </div>
-
-        </div>
-        <!-- Classic tabs -->
     </div>
 
     <script>

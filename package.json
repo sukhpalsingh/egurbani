@@ -20,6 +20,7 @@
     "electron-rebuild": "^1.8.2"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "mdbootstrap": "^4.5.8",
     "sqlite3": "^4.0.2"
   }

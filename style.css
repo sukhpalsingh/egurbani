@@ -3,16 +3,6 @@
     src: url('./fonts/gurbaniakhar.ttf');
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-}
-
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
 body {
     background: #efd991;
 }
@@ -27,9 +17,17 @@ body {
     overflow: hidden;
 }
 
+.fullheight {
+    height: 100%;
+}
+
+.search-panel .tab-content {
+    height: 238px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 #search-results, #shabad-results {
-    max-height: 150px;
-    overflow: auto;
     font-family: gurbaniakhar;
 }
 
