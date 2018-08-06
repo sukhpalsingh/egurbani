@@ -10,32 +10,17 @@
   <body>
     <div class="container-fluid shabad">
         <div class="row">
-            <div id="gurmukhi1" class="col-sm-12 gurmukhi">
+            <div id="gurmukhi" class="col-sm-12 gurmukhi">
 
             </div>
         </div>
-        <div class="row">
-            <div id="gurmukhi2" class="col-sm-12 gurmukhi">
+        <div class="row mt-2">
+            <div id="punjabi" class="col-sm-12 punjabi">
                 
             </div>
         </div>
         <div class="row mt-2">
-            <div id="punjabi1" class="col-sm-12 punjabi">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div id="punjabi2" class="col-sm-12 punjabi">
-                
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div id="english1" class="col-sm-12 english">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div id="english2" class="col-sm-12 english">
+            <div id="english" class="col-sm-12 english">
                 
             </div>
         </div>
@@ -45,21 +30,7 @@
         <!-- Classic tabs -->
         <div class="classic-tabs container-fluid">
 
-        <!-- Nav tabs -->
-        <div class="tabs-wrapper">
-            <ul class="nav tabs-orange" role="tablist">
-                <li class="nav-item">
-                    <a id="search-tab" class="nav-link waves-light show active" data-toggle="tab" href="#panel1011" role="tab">
-                        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                        <br> Search</a>
-                </li>
-                <li class="nav-item">
-                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
-                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
-                        <br> Shabad</a>
-                </li>
-            </ul>
-        </div>
+        
 
         <!-- Tab panels -->
         <div class="tab-content card">
@@ -87,6 +58,54 @@
             </div>
             <!--/.Panel 2-->
 
+            <div class="tab-pane fade" id="setting-panel" role="tabpanel">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="gurmukhi-font-size">Gurmukhi</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input id="gurmukhi-font-size" type="range" min="10" max="100" value="45" class="form-control" onchange="settings.updateFontSizes()" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="punjabi-font-size">Punjabi</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input id="punjabi-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="english-font-size">English</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input id="english-font-size" type="range" min="10" max="100" value="30" class="form-control" onchange="settings.updateFontSizes()" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Nav tabs -->
+        <div class="tabs-wrapper">
+            <ul class="nav tabs-orange" role="tablist">
+                <li class="nav-item">
+                    <a id="search-tab" class="nav-link waves-light show active" data-toggle="tab" href="#panel1011" role="tab">
+                        <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                        <br> Search</a>
+                </li>
+                <li class="nav-item">
+                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#panel1012" role="tab">
+                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                        <br> Shabad</a>
+                </li>
+                <li class="nav-item">
+                    <a id="shabad-tab" class="nav-link waves-light" data-toggle="tab" href="#setting-panel" role="tab">
+                        <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                        <br> Settings</a>
+                </li>
+            </ul>
         </div>
 
         </div>

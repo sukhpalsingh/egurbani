@@ -1,6 +1,6 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./db/data.db');
-var shabadContent = {};
+var shabadContent;
 var currentLine = 1;
 
 function search() {
@@ -14,6 +14,7 @@ function search() {
 }
 
 function showShabad(verseId) {
+    shabadContent = [];
     var query = "SELECT ID, Gurmukhi, English, Punjabi FROM Verse WHERE ID IN ("
         + "SELECT VerseID FROM Shabad WHERE ShabadID = (SELECT ShabadID FROM Shabad WHERE VerseID = " + verseId + ") "
         + ")" ;
@@ -22,7 +23,7 @@ function showShabad(verseId) {
     var count = 0;
     db.each(query, function(err, row) {
         if (shabadContent.hasOwnProperty(line) !== true) {
-            shabadContent[line] = {};
+            shabadContent[line] = [];
         }
 
         shabadContent[line][count] = row;
@@ -77,13 +78,16 @@ function showShabad(verseId) {
 }
 
 function showLine(line) {
-    $('#gurmukhi1').html(shabadContent[line][0].Gurmukhi);
-    $('#english1').html(shabadContent[line][0].English);
-    $('#punjabi1').html(shabadContent[line][0].Punjabi);
+    var content = {'gurmukhi' : '', 'punjabi' : '', 'english' : ''};
+    for(var i = 0; i < shabadContent[line].length; i++) {
+        content['gurmukhi'] += shabadContent[line][i].Gurmukhi + '<br />';
+        content['punjabi'] += shabadContent[line][i].Punjabi + ' ';
+        content['english'] += shabadContent[line][i].English + ' ';
+    }
 
-    $('#gurmukhi2').html(shabadContent[line][1].Gurmukhi);
-    $('#english2').html(shabadContent[line][1].English);
-    $('#punjabi2').html(shabadContent[line][1].Punjabi);
+    $('#gurmukhi').html(content['gurmukhi']);
+    $('#punjabi').html(content['punjabi']);
+    $('#english').html(content['english']);
 }
 
 $('#search-text').keypress(function(e) {
@@ -91,3 +95,11 @@ $('#search-text').keypress(function(e) {
         search();
     }
 });
+
+var settings = {
+    updateFontSizes: function() {
+        $('.gurmukhi').css('font-size', $('#gurmukhi-font-size').val() + 'px');
+        $('.punjabi').css('font-size', $('#punjabi-font-size').val() + 'px');
+        $('.english').css('font-size', $('#english-font-size').val() + 'px');
+    }
+}
