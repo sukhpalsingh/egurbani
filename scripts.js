@@ -7,7 +7,7 @@ function search() {
     var query = "SELECT ID, Gurmukhi FROM Verse WHERE FirstLetterEng like '%" + $('#search-text').val() + "%'" ;
     var response = "";
     db.each(query, function(err, row) {
-        response += "<li class='list-group-item' onclick='showShabad(" + row.ID + ")'>" + row.Gurmukhi + "</li>";
+        response += "<li class='list-group-item amber lighten-4' onclick='showShabad(" + row.ID + ")'>" + row.Gurmukhi + "</li>";
     }, function() {
         $('#search-results').html(response);
     });
@@ -30,7 +30,7 @@ function showShabad(verseId) {
         if (verseId === row.ID) {
             currentLine = line;
         }
-        response += "<li class='list-group-item' onclick='showLine(" + line + ")'>" + row.Gurmukhi + "</li>";
+        response += "<li class='list-group-item amber lighten-4' onclick='showLine(" + line + ")'>" + row.Gurmukhi + "</li>";
         count++;
 
         if (row.Gurmukhi.indexOf("]1]") > 0) {
