@@ -1,6 +1,7 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./db/data.db');
 var shabadContent;
+var homeLine = 1;
 var currentLine = 1;
 
 function search() {
@@ -28,7 +29,7 @@ function showShabad(verseId) {
 
         shabadContent[line][count] = row;
         if (verseId === row.ID) {
-            currentLine = line;
+            homeLine = line;
         }
         response += "<li class='list-group-item amber lighten-4' onclick='showLine(" + line + ")'>" + row.Gurmukhi + "</li>";
         count++;
@@ -71,7 +72,8 @@ function showShabad(verseId) {
             count = 0;
         }
     }, function() {
-        showLine(currentLine);
+        currentLine = homeLine;
+        showLine(homeLine);
         $('#shabad-results').html(response);
         $('#shabad-tab').tab('show');
     });
@@ -96,10 +98,52 @@ $('#search-text').keypress(function(e) {
     }
 });
 
+var shabad = {
+    goToHome: function() {
+        currentLine = homeLine;
+        showLine(homeLine);
+    },
+    nextLine: function() {
+        if (currentLine === shabadContent.length) {
+            return;
+        }
+        showLine(++currentLine);
+    },
+    prevLine: function() {
+        if (currentLine === 1) {
+            return;
+        }
+        showLine(--currentLine);
+    }
+};
+
 var settings = {
     updateFontSizes: function() {
         $('.gurmukhi').css('font-size', $('#gurmukhi-font-size').val() + 'px');
         $('.punjabi').css('font-size', $('#punjabi-font-size').val() + 'px');
         $('.english').css('font-size', $('#english-font-size').val() + 'px');
     }
-}
+};
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        shabad.prevLine();
+        break;
+
+        case 38: // up
+        show.goToHome();
+        break;
+
+        case 39: // right
+        shabad.nextLine();
+        break;
+
+        case 40: // down
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
