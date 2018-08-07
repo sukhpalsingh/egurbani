@@ -22,3 +22,11 @@ yarn rebuild
 # Run the app
 npm start
 ```
+
+## For windows users
+
+Install python for node js dependencies
+
+```bash
+npm install --global --production window-build-tools
+```
