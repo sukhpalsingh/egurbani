@@ -87,9 +87,15 @@ function showLine(line) {
         content['english'] += shabadContent[line][i].English + ' ';
     }
 
+    $('#gurmukhi').css('font-size', settings.gurmukhiFontSize + 'px');
+    $('#punjabi').css('font-size', settings.punjabiFontSize + 'px');
+    $('#english').css('font-size', settings.englishFontSize + 'px');
     $('#gurmukhi').html(content['gurmukhi']);
     $('#punjabi').html(content['punjabi']);
     $('#english').html(content['english']);
+    $('#gurmukhi').autoSizr();
+    $('#punjabi').autoSizr();
+    $('#english').autoSizr();
 }
 
 $('#search-text').keypress(function(e) {
@@ -122,7 +128,10 @@ var settings = {
         $('.gurmukhi').css('font-size', $('#gurmukhi-font-size').val() + 'px');
         $('.punjabi').css('font-size', $('#punjabi-font-size').val() + 'px');
         $('.english').css('font-size', $('#english-font-size').val() + 'px');
-    }
+    },
+    gurmukhiFontSize: 67,
+    punjabiFontSize: 45,
+    englishFontSize: 35
 };
 
 $(document).keydown(function(e) {
@@ -147,3 +156,39 @@ $(document).keydown(function(e) {
 
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+$.fn.autoSizr = function () {
+    var el, elements, _i, _len, _results;
+    elements = $(this);
+    if (elements.length < 0) {
+      return;
+    }
+    _results = [];
+    for (_i = 0, _len = elements.length; _i < _len; _i++) {
+      el = elements[_i];
+      _results.push((function(el) {
+        var resizeText, _results1;
+        resizeText = function() {
+          var elNewFontSize;
+          elNewFontSize = (parseInt($(el).css('font-size').slice(0, -2)) - 1) + 'px';
+          return $(el).css('font-size', elNewFontSize);
+        };
+        _results1 = [];
+        while (el.scrollHeight > el.offsetHeight) {
+          _results1.push(resizeText());
+        }
+        return _results1;
+      })(el));
+    }
+    return $(this); 
+};
+
+function resizeFields() {
+    var totalHeight = $(window).height();
+    var fieldHeight = Math.floor(totalHeight / 3);
+    $('#gurmukhi').css('height', fieldHeight + 'px');
+    $('#punjabi').css('height', fieldHeight + 'px');
+    $('#english').css('height', fieldHeight + 'px');
+}
+
+resizeFields();

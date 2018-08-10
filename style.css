@@ -5,6 +5,8 @@
 
 body {
     background: #efd991;
+    width: 100%;
+    height: 100%;
 }
 
 .search-panel {
@@ -33,16 +35,18 @@ body {
 
 .shabad .gurmukhi {
     font-family: gurbaniakhar;
-    font-size: 67px;
+    /* font-size: 67px; */
     font-weight: bold;
     text-align: center;
     color: #271529;
+    overflow: auto;
 }
 
 .shabad .english {
     font-size: 35px;
     font-weight: bold;
     text-align: center;
+    overflow: auto;
 }
 
 .shabad .punjabi {
@@ -51,4 +55,5 @@ body {
     font-weight: bold;
     text-align: center;
     color: #155354;
+    overflow: auto;
 }
